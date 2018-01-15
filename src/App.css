@@ -1,5 +1,6 @@
 .app {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Avenir Next W01', 'Helvetica Neue', 'Helvetica', 'sans-serif';
+  color: rgb(56, 56, 56);
 }
