@@ -9,5 +9,5 @@ jest.mock('react-router-dom', () => ({
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<Home />, div);
+  ReactDOM.render(<Home match={ { params: { department: 'All' } } } />, div);
 });

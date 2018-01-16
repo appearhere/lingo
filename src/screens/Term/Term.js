@@ -8,7 +8,7 @@ const Term = ({ match }) => (
 );
 
 Term.propTypes = {
-  match: PropTypes.shape({}),
+  match: PropTypes.shape({}).isRequired,
 };
 
 export default Term;
