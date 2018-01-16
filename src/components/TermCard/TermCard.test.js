@@ -1,6 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import Home from './Home';
+import { render } from 'react-dom';
+
+import TermCard from './TermCard';
 
 jest.mock('react-router-dom', () => ({
   // eslint-disable-next-line react/prop-types
@@ -9,5 +10,5 @@ jest.mock('react-router-dom', () => ({
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<Home />, div);
+  render(<TermCard name="TTV" department="Concierge" linkTo="/TTV" />, div);
 });

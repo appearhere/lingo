@@ -2,16 +2,19 @@ import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import Home from './screens/Home/Home';
+import Term from './screens/Term/Term';
 
 import css from './App.css';
 
 const App = () => (
-  <div className={ css.app }>
-    <h1>Lingo</h1>
-    <Router>
+  <Router>
+    <div className={ css.app }>
+      <h1>Lingo</h1>
+
       <Route exact path="/" component={ Home } />
-    </Router>
-  </div>
+      <Route path="/:term" component={ Term } />
+    </div>
+  </Router>
 );
 
 export default App;

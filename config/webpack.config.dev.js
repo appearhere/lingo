@@ -9,6 +9,9 @@ const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
 const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
+const customMedia = require('postcss-custom-media');
+const customProperties = require('postcss-custom-properties');
+const webpackPostcssTools = require('webpack-postcss-tools');
 const getClientEnvironment = require('./env');
 const paths = require('./paths');
 
@@ -21,6 +24,8 @@ const publicPath = '/';
 const publicUrl = '';
 // Get environment variables to inject into our app.
 const env = getClientEnvironment(publicUrl);
+
+const bloomMap = webpackPostcssTools.makeVarMap(path.join(paths.bloom, 'globals', 'index.css'));
 
 // This is the development configuration.
 // It is focused on developer experience and fast rebuilds.
@@ -120,7 +125,7 @@ module.exports = {
             loader: require.resolve('eslint-loader'),
           },
         ],
-        include: paths.appSrc,
+        include: [paths.appSrc],
       },
       {
         // "oneOf" will traverse all following loaders until one will
@@ -141,10 +146,37 @@ module.exports = {
           // Process JS with Babel.
           {
             test: /\.(js|jsx|mjs)$/,
-            include: paths.appSrc,
+            include: [paths.appSrc, paths.bloom],
             loader: require.resolve('babel-loader'),
             options: {
-              
+              presets: [
+                // JSX, Flow
+                require.resolve('babel-preset-react'),
+                // Latest stable ECMAScript features
+                require.resolve('babel-preset-latest'),
+              ],
+              plugins: [
+                // Plugin to allow us to hot reload components
+                require.resolve('react-hot-loader/babel'),
+                // class { handleClick = () => { } }
+                require.resolve('babel-plugin-transform-class-properties'),
+                // { ...todo, completed: true }
+                require.resolve('babel-plugin-transform-object-rest-spread'),
+                // function* () { yield 42; yield 43; }
+                [require.resolve('babel-plugin-transform-regenerator'), {
+                  // Async functions are converted to generators by babel-preset-latest
+                  async: false,
+                }],
+                // Polyfills the runtime needed for async/await and generators
+                [require.resolve('babel-plugin-transform-runtime'), {
+                  helpers: false,
+                  polyfill: false,
+                  regenerator: true,
+                  // Resolve the Babel runtime relative to the config.
+                  // You can safely remove this after ejecting:
+                  moduleName: path.dirname(require.resolve('babel-runtime/package')),
+                }],
+              ],
               // This is a feature of `babel-loader` for webpack (not Babel itself).
               // It enables caching results in ./node_modules/.cache/babel-loader/
               // directory for faster rebuilds.
@@ -185,9 +217,23 @@ module.exports = {
                       ],
                       flexbox: 'no-2009',
                     }),
+                    customProperties({
+                      variables: bloomMap.vars,
+                    }),
+                    customMedia({
+                      extensions: bloomMap.media,
+                    }),
                   ],
                 },
               },
+            ],
+          },
+          {
+            test: /(logos|icons)\/.+\.svg$/,
+            include: [paths.appSrc, paths.bloom],
+            loaders: [
+              require.resolve('raw-loader'),
+              require.resolve('svgo-loader')
             ],
           },
           // "file" loader makes sure those assets get served by WebpackDevServer.

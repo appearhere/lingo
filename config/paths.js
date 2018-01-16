@@ -52,4 +52,5 @@ module.exports = {
   appNodeModules: resolveApp('node_modules'),
   publicUrl: getPublicUrl(resolveApp('package.json')),
   servedPath: getServedPath(resolveApp('package.json')),
+  bloom: fs.realpathSync('node_modules/@appearhere/bloom'),
 };
