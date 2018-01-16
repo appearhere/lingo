@@ -6,7 +6,7 @@ import TermCard from '../TermCard/TermCard';
 import css from './TermList.css';
 
 const TermList = ({ currentDepartment, terms }) => (
-  <div>
+  <div className={ css.root }>
     { terms.map(term => (
       <TermCard
         key={ term.name }

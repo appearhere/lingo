@@ -7,11 +7,14 @@ import TabBarItem from '@appearhere/bloom/components/Navigation/TabBar/TabBarIte
 
 import m from '@appearhere/bloom/globals/modifiers.css';
 
+import Search from '../Search/Search';
+
 const MIN_MOBILE_NAV_WIDTH = '(min-width: 36.25rem)';
 
 export default class Header extends Component {
   static propTypes = {
     match: PropTypes.shape({}).isRequired,
+    location: PropTypes.shape({}).isRequired,
     history: PropTypes.shape({}).isRequired,
   };
 
@@ -36,10 +39,10 @@ export default class Header extends Component {
   };
 
   handleItemClick = (e) => {
-    const { history } = this.props;
+    const { location, history } = this.props;
     const { name } = e.target;
 
-    history.push(`/${name}`);
+    history.push(`/${name}${location.search}`);
   };
 
   render() {
@@ -47,7 +50,7 @@ export default class Header extends Component {
     const { match } = this.props;
     return (
       <div>
-        <h1>Lingo</h1>
+        <Search { ...this.props } />
         <TabBar scrollable={ isNavScrollable }>
           <TabBarItem
             active={ !match.params.department }
