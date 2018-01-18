@@ -9,5 +9,5 @@ jest.mock('react-router-dom', () => ({
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<TermList />, div);
+  ReactDOM.render(<TermList currentDepartment="All" />, div);
 });
