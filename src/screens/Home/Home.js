@@ -23,10 +23,10 @@ const Home = ({ match, location }) => {
   const { q: query } = qs.parse(location.search);
   const currentDepartment = match.params.department;
 
-  const searchResuls = query ? fuse.search(query) : terms;
-  const filteredTerms = currentDepartment ? searchResuls.filter(
+  const searchResults = query ? fuse.search(query) : terms;
+  const filteredTerms = currentDepartment ? searchResults.filter(
     term => term.department === currentDepartment
-  ) : searchResuls;
+  ) : searchResults;
 
   return <TermList terms={ filteredTerms } />;
 };
