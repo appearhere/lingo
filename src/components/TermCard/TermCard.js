@@ -6,19 +6,17 @@ import cx from 'classnames';
 import cardCss from '@appearhere/bloom/components/Cards/Card/Card.css';
 import css from './TermCard.css';
 
-const TermCard = ({ name, department, linkTo, className }) => (
+const TermCard = ({ term, className }) => (
   <div className={ cx(css.root, cardCss.link, className) }>
-    <Link to={ linkTo }>
-      <div className={ css.name }>{ name }</div>
-      <div className={ css.department }>{ department }</div>
+    <Link to={ `/${term.department}/${term.name}` }>
+      <div className={ css.name }>{ term.name }</div>
+      <div className={ css.department }>{ term.department }</div>
     </Link>
   </div>
 );
 
 TermCard.propTypes = {
-  name: PropTypes.string.isRequired,
-  department: PropTypes.oneOf(['Supply', 'Concierge', 'Marketing', 'Service', 'Product']),
-  linkTo: PropTypes.string.isRequired,
+  term: PropTypes.shape({}).isRequired,
   className: PropTypes.string,
 };
 
