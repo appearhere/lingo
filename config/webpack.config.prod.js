@@ -10,6 +10,9 @@ const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
+const customMedia = require('postcss-custom-media');
+const customProperties = require('postcss-custom-properties');
+const webpackPostcssTools = require('webpack-postcss-tools');
 const paths = require('./paths');
 const getClientEnvironment = require('./env');
 
@@ -45,6 +48,8 @@ const extractTextPluginOptions = shouldUseRelativeAssetPaths
   ? // Making sure that the publicPath goes back to to build folder.
     { publicPath: Array(cssFilename.split('/').length).join('../') }
   : {};
+
+const bloomMap = webpackPostcssTools.makeVarMap(path.join(paths.bloom, 'globals', 'index.css'));
 
 // This is the production configuration.
 // It compiles slowly and is focused on producing a fast and minimal bundle.
@@ -146,10 +151,41 @@ module.exports = {
           // Process JS with Babel.
           {
             test: /\.(js|jsx|mjs)$/,
-            include: paths.appSrc,
+            include: [paths.appSrc, paths.bloom],
             loader: require.resolve('babel-loader'),
             options: {
-              
+              presets: [
+                // JSX, Flow
+                require.resolve('babel-preset-react'),
+                // Latest stable ECMAScript features
+                require.resolve('babel-preset-latest'),
+              ],
+              plugins: [
+                // Plugin to allow us to hot reload components
+                require.resolve('react-hot-loader/babel'),
+                // class { handleClick = () => { } }
+                require.resolve('babel-plugin-transform-class-properties'),
+                // { ...todo, completed: true }
+                require.resolve('babel-plugin-transform-object-rest-spread'),
+                // function* () { yield 42; yield 43; }
+                [require.resolve('babel-plugin-transform-regenerator'), {
+                  // Async functions are converted to generators by babel-preset-latest
+                  async: false,
+                }],
+                // Polyfills the runtime needed for async/await and generators
+                [require.resolve('babel-plugin-transform-runtime'), {
+                  helpers: false,
+                  polyfill: false,
+                  regenerator: true,
+                  // Resolve the Babel runtime relative to the config.
+                  // You can safely remove this after ejecting:
+                  moduleName: path.dirname(require.resolve('babel-runtime/package')),
+                }],
+              ],
+              // This is a feature of `babel-loader` for webpack (not Babel itself).
+              // It enables caching results in ./node_modules/.cache/babel-loader/
+              // directory for faster rebuilds.
+              cacheDirectory: true,
               compact: true,
             },
           },
@@ -182,6 +218,7 @@ module.exports = {
                       options: {
                         importLoaders: 1,
                         modules: true,
+                        localIdentName: '[name]__[local]___[hash:base64:5]',
                         minimize: true,
                         sourceMap: shouldUseSourceMap,
                       },
@@ -203,6 +240,12 @@ module.exports = {
                             ],
                             flexbox: 'no-2009',
                           }),
+                          customProperties({
+                            variables: bloomMap.vars,
+                          }),
+                          customMedia({
+                            extensions: bloomMap.media,
+                          }),
                         ],
                       },
                     },
@@ -212,6 +255,14 @@ module.exports = {
               )
             ),
             // Note: this won't work without `new ExtractTextPlugin()` in `plugins`.
+          },
+          {
+            test: /(logos|icons)\/.+\.svg$/,
+            include: [paths.appSrc, paths.bloom],
+            loaders: [
+              require.resolve('raw-loader'),
+              require.resolve('svgo-loader')
+            ],
           },
           // "file" loader makes sure assets end up in the `build` folder.
           // When you `import` an asset, you get its filename.
