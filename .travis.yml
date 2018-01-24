@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+- node
+cache: yarn
+sudo: required
+services:
+- docker
+jobs:
+  include:
+  - stage: test
+    script: echo eslint
+  - stage: build and deploy
+    script: ./scripts/deploy
+env:
+  global:
+    secure: ***REMOVED***
