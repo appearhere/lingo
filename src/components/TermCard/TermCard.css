@@ -2,10 +2,14 @@
   padding: var(--size-regular);
   position: relative;
   background-color: var(--color-white);
-  border-radius: 2px;
+  border-radius: 4px;
   z-index: 1;
   transition: box-shadow 100ms ease-in-out;
   border: 1px solid var(--color-greyLighter);
+}
+
+.root:visited {
+  border: 1px solid var(--color-black);
 }
 
 .root:after {
@@ -15,6 +19,10 @@
 
 .root > a {
   text-decoration: none;
+}
+
+.header {
+  display: flex;
 }
 
 .name {
@@ -31,4 +39,15 @@
   font-size: var(--fontsize-regular);
   color: var(--color-grey);
   margin-top: var(--size-sm-ii);
+}
+
+.definition {
+  margin-top: var(--size-sm-ii);
+  font-size: var(--fontsize-regular);
+  font-weight: var(--fontweight-regular);
+  color: var(--color-black);
+  white-space: nowrap;
+  overflow: hidden;
+  width: 98%;
+  text-overflow: ellipsis;
 }
