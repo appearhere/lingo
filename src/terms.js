@@ -2,7 +2,15 @@ export default [
   {
     name: 'TTV',
     department: 'Concierge',
-    definition: 'Total Transaction Value',
+    definition: `Total transaction value. When a booking is complete this is the total financial value of that contract.
+    TTV is a high level metric that helps us understand overall growth of the business as it measures our sales.`,
+    when: 'As a business we calculate TTV Daily, Weekly, Monthly, Quarterly and annually.',
+    where: 'This is a commercial metric but it is important to the whole business',
+    explain: 'When a booking requested is either signed or paid the TTV is counted in this period.',
+    technical: `Completed flag on a booking request this can be found in the tables related to booking requests.
+ e.g, dim_booking_request.completed_at`,
+    expected: `1 booking request is £X, monthly TTV should be between £X + £X. Last year we did £Xm in TTV.
+    Tip: TTV is a financial metric make sure to take into account currency. value_gbp will convert into £s`,
   },
   {
     name: 'Ideas in funnel',
@@ -310,7 +318,7 @@ export default [
     definition: 'Total of all published space',
   },
   {
-    name: '% of portolio with booking',
+    name: 'Percentage of portolio with booking',
     department: 'Supply',
     definition: '% of spaces with a booking out of all published spaces per landlord',
   },
@@ -544,4 +552,5 @@ export default [
     department: 'Product',
     definition: 'Jellyfish',
   },
+
 ];
