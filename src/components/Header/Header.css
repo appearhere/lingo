@@ -1,0 +1,26 @@
+.root{
+  position: relative;
+}
+
+.root:after {
+  background-color: rgb(221, 221, 221);
+  height: 1px;
+  bottom: 0;
+  content: '';
+  display: block;
+  left: 0;
+  position: absolute;
+  vertical-align: middle;
+  width: 100%;
+}
+
+.tabBarItem:focus {
+  outline: none;
+}
+
+@media(min-width: 36.25rem) {
+  .tabBarContainer {
+    padding-left: 2rem;
+    max-width: 40rem;
+  }
+}

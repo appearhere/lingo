@@ -1,43 +1,40 @@
 .root {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   background-color: var(--color-black);
 }
 
 .logoContainer {
+  align-self: center;
+  background-color: var(--color-black);
   padding: var(--size-regular);
   position: relative;
-}
-
-.logoContainer:after {
-  content: '';
-  display: block;
-  width: 1px;
-  height: 100%;
-  border-right: 1px solid #383838;
-  position: absolute;
-  right: 0;
-  top: 0;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
 }
 
 .logo {
   height: var(--size-lg-i);
+  margin-right: var(--size-sm-i);
+}
+
+.logoText {
+  color: var(--color-white);
+  font-weight: var(--fontweight-demi);
+  font-size: var(--fontsize-large-i);
 }
 
 .inputRoot {
-  padding-left: 1rem;
-  padding-right: 1rem;
   width: 100%;
 }
 
-input.input[type="text"],
-input.input[type="text"]:focus {
-  background: none;
-  border: none;
-  color: var(--color-white);
+.input:focus {
+  outline: none;
 }
 
-.icon {
-  color: var(--color-grey);
+@media(min-width: 36.25rem) {
+  .logoContainer {
+    align-self: flex-start;
+  }
 }
-

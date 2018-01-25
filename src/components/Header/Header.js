@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { subscribe } from 'subscribe-ui-event';
+import cx from 'classnames';
 
 import TabBar from '@appearhere/bloom/components/Navigation/TabBar/TabBar';
 import TabBarItem from '@appearhere/bloom/components/Navigation/TabBar/TabBarItem';
@@ -8,6 +9,8 @@ import TabBarItem from '@appearhere/bloom/components/Navigation/TabBar/TabBarIte
 import m from '@appearhere/bloom/globals/modifiers.css';
 
 import Search from '../Search/Search';
+
+import css from './Header.css';
 
 const MIN_MOBILE_NAV_WIDTH = '(min-width: 36.25rem)';
 
@@ -49,63 +52,65 @@ export default class Header extends Component {
     const { isNavScrollable } = this.state;
     const { match } = this.props;
     return (
-      <div>
+      <div className={ css.root }>
         <Search { ...this.props } />
-        <TabBar scrollable={ isNavScrollable }>
-          <TabBarItem
-            active={ !match.params.department }
-            Component="button"
-            onClick={ this.handleItemClick }
-            className={ m.bgWhite }
-          >
-            All
-          </TabBarItem>
-          <TabBarItem
-            name="Supply"
-            active={ match.params.department === 'Supply' }
-            Component="button"
-            onClick={ this.handleItemClick }
-            className={ m.bgWhite }
-          >
-            Supply
-          </TabBarItem>
-          <TabBarItem
-            name="Concierge"
-            active={ match.params.department === 'Concierge' }
-            Component="button"
-            onClick={ this.handleItemClick }
-            className={ m.bgWhite }
-          >
-            Concierge
-          </TabBarItem>
-          <TabBarItem
-            name="Marketing"
-            active={ match.params.department === 'Marketing' }
-            Component="button"
-            onClick={ this.handleItemClick }
-            className={ m.bgWhite }
-          >
-            Marketing
-          </TabBarItem>
-          <TabBarItem
-            name="Service"
-            active={ match.params.department === 'Service' }
-            Component="button"
-            onClick={ this.handleItemClick }
-            className={ m.bgWhite }
-          >
-            Service
-          </TabBarItem>
-          <TabBarItem
-            name="Product"
-            active={ match.params.department === 'Product' }
-            Component="button"
-            onClick={ this.handleItemClick }
-            className={ m.bgWhite }
-          >
-            Product
-          </TabBarItem>
-        </TabBar>
+        <div className={ css.tabBarContainer }>
+          <TabBar scrollable={ isNavScrollable }>
+            <TabBarItem
+              active={ !match.params.department }
+              Component="button"
+              onClick={ this.handleItemClick }
+              className={ cx(css.tabBarItem, m.bgWhite) }
+            >
+              All
+            </TabBarItem>
+            <TabBarItem
+              name="Supply"
+              active={ match.params.department === 'Supply' }
+              Component="button"
+              onClick={ this.handleItemClick }
+              className={ cx(css.tabBarItem, m.bgWhite) }
+            >
+              Supply
+            </TabBarItem>
+            <TabBarItem
+              name="Concierge"
+              active={ match.params.department === 'Concierge' }
+              Component="button"
+              onClick={ this.handleItemClick }
+              className={ cx(css.tabBarItem, m.bgWhite) }
+            >
+              Concierge
+            </TabBarItem>
+            <TabBarItem
+              name="Marketing"
+              active={ match.params.department === 'Marketing' }
+              Component="button"
+              onClick={ this.handleItemClick }
+              className={ cx(css.tabBarItem, m.bgWhite) }
+            >
+              Marketing
+            </TabBarItem>
+            <TabBarItem
+              name="Service"
+              active={ match.params.department === 'Service' }
+              Component="button"
+              onClick={ this.handleItemClick }
+              className={ cx(css.tabBarItem, m.bgWhite) }
+            >
+              Service
+            </TabBarItem>
+            <TabBarItem
+              name="Product"
+              active={ match.params.department === 'Product' }
+              Component="button"
+              onClick={ this.handleItemClick }
+              className={ cx(css.tabBarItem, m.bgWhite) }
+            >
+              Product
+            </TabBarItem>
+          </TabBar>
+        </div>
       </div>
     );
   }

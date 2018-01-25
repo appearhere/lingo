@@ -1,0 +1,10 @@
+.container {
+  display: block;
+  padding: 1rem;
+}
+
+@media(min-width: 36.25rem) {
+  .container {
+    padding: 2rem;
+  }
+}
