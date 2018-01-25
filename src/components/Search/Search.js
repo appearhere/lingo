@@ -46,11 +46,12 @@ class Search extends Component {
       <div className={ css.root } onClick={ this.checkLocation }>
         <Link to="/" className={ css.logoContainer }>
           <img src={ logo } className={ css.logo } alt="logo" />
+          <div className={ css.logoText }>Lingo</div>
         </Link>
         <IconInput
           iconName="search"
-          classNames={ { root: css.inputRoot, input: css.input, icon: css.icon } }
-          placeholder="Search"
+          classNames={ { root: css.inputRoot, input: css.input } }
+          placeholder="Search for a term"
           onChange={ this.handleInputChange }
           value={ value }
         />
