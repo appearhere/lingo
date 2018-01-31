@@ -1,10 +1,13 @@
 .container {
   display: block;
-  padding: 1rem;
+  padding: 2rem;
 }
 
 @media(min-width: 36.25rem) {
   .container {
-    padding: 2rem;
+    padding: 4rem;
+    max-width: 90rem;
+    margin-left: auto;
+    margin-right: auto;
   }
 }

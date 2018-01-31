@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 
 import IconInput from '@appearhere/bloom/components/Form/IconInput/IconInput';
 
 import css from './Search.css';
-
-import logo from './logo.svg';
 
 class Search extends Component {
   static propTypes = {
@@ -44,10 +41,6 @@ class Search extends Component {
     return (
       // eslint-disable-next-line
       <div className={ css.root } onClick={ this.checkLocation }>
-        <Link to="/" className={ css.logoContainer }>
-          <img src={ logo } className={ css.logo } alt="logo" />
-          <div className={ css.logoText }>Lingo</div>
-        </Link>
         <IconInput
           iconName="search"
           classNames={ { root: css.inputRoot, input: css.input } }

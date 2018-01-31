@@ -1,12 +1,13 @@
 .top {
-  max-width: 25rem;
+  max-width: 45rem;
 }
 
 .bottom {
   display: grid;
-  grid-gap: 1rem;
+  grid-gap: calc(var(--size-lg-i) + var(--size-sm-ii));
   min-height: 0;
   min-width: 0;
+  margin-top: calc(var(--size-lg-i) + var(--size-sm-ii));
 }
 
 .section {
@@ -16,20 +17,41 @@
 }
 
 .h1 {
+  margin-top: 0;
   margin-bottom: 0;
   font-weight: var(--fontweight-demi);
   font-size: var(--fontsize-large-i);
 }
 
 .h2 {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-top: 0;
+  margin-bottom: 0;
   font-weight: var(--fontweight-demi);
   font-size: var(--fontsize-regular);
+  white-space: nowrap;
+}
+
+.h2:after {
+  margin-top: var(--size-regular);
+  margin-bottom: var(--size-regular);
+  background-color: var(--color-black);
+  height: 1px;
+  bottom: 0;
+  content: '';
+  display: block;
+  left: 0;
+  vertical-align: middle;
+  width: 100%;
 }
 
 .h3 {
+  margin-top: var(--size-regular);
+  margin-bottom: var(--size-regular);
   font-size: var(--fontsize-small-i);
+}
+
+.h3:first-of-type {
+  margin-top: 0;
 }
 
 .body {
@@ -38,43 +60,33 @@
 }
 
 .badge {
-  margin-top: 1rem;;
+  margin-top: var(--size-regular);;
 }
 
 .definition {
-  margin-top: var(--size-lg-i);
+  margin-top: var(--size-regular);
   font-weight: var(--fontweight-demi);
   font-size: var(--fontsize-regular);
 }
 
 @media(min-width: 36.25rem) {
   .bottom {
-    margin-top: 12.5rem;
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 2rem;
+    grid-gap: var(--size-lg-iii);
+    margin-top: var(--size-lg-iii)
   }
 
   .h1 {
     font-size: var(--fontsize-large-v);
   }
 
-  .h2 {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-  }
-
-  .badge {
-    margin-top: 2rem;
-  }
-
   .definition {
-    margin-top: 2rem;
     font-size: var(--fontsize-large-i);
   }
 }
 
 @media(min-width: 48.75rem) {
   .bottom {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }

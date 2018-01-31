@@ -14,7 +14,7 @@ const TermCard = ({ term, className }) => (
   >
     <div className={ css.header }>
       <div className={ css.name }>{ term.name }</div>
-      <Badge>{ term.department }</Badge>
+      <Badge className={ css.badge }>{ term.department }</Badge>
     </div>
     <div className={ css.definition }>
       { term.definition }

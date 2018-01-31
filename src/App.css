@@ -3,7 +3,9 @@ body {
 }
 
 .app {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
   margin: 0;
   font-family: 'Avenir Next W01', 'Helvetica Neue', 'Helvetica', 'sans-serif';
-  color: rgb(56, 56, 56);
+  color: var(--color-black);
 }
