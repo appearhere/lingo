@@ -4,17 +4,17 @@
   background-color: var(--color-white);
   border-radius: 4px;
   z-index: 1;
-  transition: box-shadow 100ms ease-in-out;
+  transition: background-color 100ms ease-in-out;
   border: 1px solid var(--color-greyLighter);
-}
-
-.root:visited {
-  border: 1px solid var(--color-black);
 }
 
 .root:after {
   border-radius: 4px;
   box-shadow: 0 2px 7px 0 rgba(0, 0, 0, 0.1);
+}
+
+.root:hover {
+  background-color: var(--color-greyLightest);
 }
 
 .root > a {
@@ -50,4 +50,10 @@
   overflow: hidden;
   width: 98%;
   text-overflow: ellipsis;
+}
+
+@media(min-width: 36.25rem) {
+  .badge {
+    display: none;
+  }
 }
