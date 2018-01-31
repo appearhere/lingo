@@ -51,7 +51,7 @@
 
 @media(min-width: 36.25rem) {
   .tabBarContainer {
-    max-width: 37.5rem;
+    max-width: 45rem;
   }
   .logoContainer {
     align-self: flex-start;

@@ -4,7 +4,7 @@ import cx from 'classnames';
 
 import Badge from '@appearhere/bloom/components/Badge/Badge';
 
-import terms from '../../terms';
+import terms from '../../terms.json';
 
 import sharedCss from '../../shared.css';
 import css from './Term.css';
@@ -23,6 +23,10 @@ const Term = ({ match }) => {
       </div>
       <div className={ css.bottom }>
         <div>
+          <h2 className={ css.h2 }>What</h2>
+          <div className={ css.body }>{ term.what }</div>
+        </div>
+        <div>
           <h2 className={ css.h2 }>When</h2>
           <div className={ css.body }>{ term.when }</div>
         </div>
@@ -31,15 +35,8 @@ const Term = ({ match }) => {
           <div className={ css.body }>{ term.where }</div>
         </div>
         <div>
-          <h2 className={ css.h2 }>How</h2>
-          <h3 className={ css.h3 }>Explain</h3>
-          <div className={ css.body }>{ term.explain }</div>
-          <h3 className={ css.h3 }>Technical</h3>
-          <div className={ css.body }>{ term.technical }</div>
-        </div>
-        <div>
           <h2 className={ css.h2 }>Expected Boundary</h2>
-          <div className={ css.body }>{ term.expected }</div>
+          <div className={ css.body }>{ term.expected_boundary }</div>
         </div>
       </div>
     </div>

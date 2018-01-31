@@ -9,7 +9,7 @@ import map from 'lodash/map';
 
 import TermList from '../../components/TermList/TermList';
 
-import terms from '../../terms';
+import terms from '../../terms.json';
 
 import sharedCss from '../../shared.css';
 

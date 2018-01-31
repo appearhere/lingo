@@ -84,13 +84,13 @@ export default class Header extends Component {
                   Supply
                 </TabBarItem>
                 <TabBarItem
-                  name="Concierge"
-                  active={ match.params.department === 'Concierge' }
+                  name="Commercial"
+                  active={ match.params.department === 'Commercial' }
                   Component="button"
                   onClick={ this.handleItemClick }
                   className={ cx(css.tabBarItem, m.bgWhite) }
                 >
-                  Concierge
+                  Commercial
                 </TabBarItem>
                 <TabBarItem
                   name="Marketing"
