@@ -1,8 +1,13 @@
-.root {
+.container {
   display: grid;
-  grid-gap: 1rem;
+  grid-gap: var(--size-regular);
   min-height: 0;
   min-width: 0;
+  margin-bottom: var(--size-regular);
+}
+
+.h2 {
+  display: none
 }
 
 .item {
@@ -12,14 +17,28 @@
 }
 
 @media(min-width: 36.25rem) {
-  .root {
+  .container {
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 2rem;
+    margin-bottom: var(--size-lg-iii);
   }
-}
 
-@media(min-width: 80rem) {
-  .root {
-    grid-template-columns: repeat(4, 1fr);
+  .h2 {
+    margin: 0;
+    display: block;
+    font-size: var(--fontsize-large-i);
+    font-weight: var(--fontweight-demi);
+  }
+
+  .h2:after {
+    margin-top: var(--size-regular);
+    margin-bottom: var(--size-regular);
+    background-color: var(--color-black);
+    height: 1px;
+    bottom: 0;
+    content: '';
+    display: block;
+    left: 0;
+    vertical-align: middle;
+    width: 100%;
   }
 }
