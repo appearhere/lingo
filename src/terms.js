@@ -48,7 +48,7 @@ export default [
     definition: 'Top 5 highest values of bookings in the time period',
   },
   {
-    name: 'Assinged per concierge',
+    name: 'Assigned per concierge',
     department: 'Concierge',
     definition: 'Top 5 highest values of bookings in the time period',
   },
