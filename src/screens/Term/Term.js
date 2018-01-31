@@ -38,6 +38,14 @@ const Term = ({ match }) => {
           <h2 className={ css.h2 }>Expected Boundary</h2>
           <div className={ css.body }>{ term.expected_boundary }</div>
         </div>
+        <div>
+          <h2 className={ css.h2 }>Hint</h2>
+          <div className={ css.body }>{ term.hint }</div>
+        </div>
+        <div>
+          <h2 className={ css.h2 }>Looker</h2>
+          <div className={ css.body }>{ term.looker }</div>
+        </div>
       </div>
     </div>
   );
