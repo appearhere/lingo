@@ -42,6 +42,7 @@
 }
 
 .tabBarItem {
+  cursor: pointer;
   padding: var(--size-regular);
 }
 
