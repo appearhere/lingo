@@ -4,37 +4,15 @@
   background-color: var(--color-black);
 }
 
-.logoContainer {
-  align-self: center;
-  background-color: var(--color-black);
-  padding: var(--size-regular);
-  position: relative;
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-}
-
-.logo {
-  height: var(--size-lg-i);
-  margin-right: var(--size-sm-i);
-}
-
-.logoText {
-  color: var(--color-white);
-  font-weight: var(--fontweight-demi);
-  font-size: var(--fontsize-large-i);
-}
-
 .inputRoot {
   width: 100%;
 }
 
-.input:focus {
-  outline: none;
+input[type="text"].input {
+  padding-top: var(--size-regular);
+  padding-bottom: var(--size-regular);
 }
 
-@media(min-width: 36.25rem) {
-  .logoContainer {
-    align-self: flex-start;
-  }
+.input:focus {
+  outline: none;
 }

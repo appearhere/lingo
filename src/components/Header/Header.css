@@ -1,9 +1,16 @@
-.root{
+.root {
+  display: flex;
+  flex-direction: column;
   position: relative;
+  background-color: var(--color-black);
 }
 
-.root:after {
-  background-color: rgb(221, 221, 221);
+.navigation {
+  background-color: var(--color-white);
+}
+
+.tabBarContainer:after {
+  background-color: var(--color-greyLighter);
   height: 1px;
   bottom: 0;
   content: '';
@@ -14,13 +21,39 @@
   width: 100%;
 }
 
+.logoContainer {
+  align-self: center;
+  padding: var(--size-regular);
+  position: relative;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logo {
+  height: var(--size-lg-i);
+  margin-right: var(--size-sm-i);
+}
+
+.logoText {
+  color: var(--color-white);
+  font-weight: var(--fontweight-demi);
+  font-size: var(--fontsize-large-i);
+}
+
+.tabBarItem {
+  padding: var(--size-regular);
+}
+
 .tabBarItem:focus {
   outline: none;
 }
 
 @media(min-width: 36.25rem) {
   .tabBarContainer {
-    padding-left: 2rem;
-    max-width: 40rem;
+    max-width: 37.5rem;
+  }
+  .logoContainer {
+    align-self: flex-start;
   }
 }
