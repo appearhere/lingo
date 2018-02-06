@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 
 import Badge from '@appearhere/bloom/components/Badge/Badge';
+import Markdown from '@appearhere/bloom/components/Markdown/Markdown';
 
 import terms from '../../terms.json';
 
@@ -19,32 +20,32 @@ const Term = ({ match }) => {
       <div className={ css.top }>
         <h1 className={ css.h1 }>{ term.name }</h1>
         <Badge className={ css.badge }>{ term.department }</Badge>
-        <div className={ css.definition }>{ term.definition }</div>
+        <Markdown className={ css.definition }>{ term.definition }</Markdown>
       </div>
       <div className={ css.bottom }>
         <div>
           <h2 className={ css.h2 }>What</h2>
-          <div className={ css.body }>{ term.what }</div>
+          <Markdown className={ css.body }>{ term.what }</Markdown>
         </div>
         <div>
           <h2 className={ css.h2 }>When</h2>
-          <div className={ css.body }>{ term.when }</div>
+          <Markdown className={ css.body }>{ term.when }</Markdown>
         </div>
         <div>
           <h2 className={ css.h2 }>Where</h2>
-          <div className={ css.body }>{ term.where }</div>
+          <Markdown className={ css.body }>{ term.where }</Markdown>
         </div>
         <div>
           <h2 className={ css.h2 }>Expected Boundary</h2>
-          <div className={ css.body }>{ term.expected_boundary }</div>
+          <Markdown className={ css.body }>{ term.expected_boundary }</Markdown>
         </div>
         <div>
           <h2 className={ css.h2 }>Hint</h2>
-          <div className={ css.body }>{ term.hint }</div>
+          <Markdown className={ css.body }>{ term.hint }</Markdown>
         </div>
         <div>
           <h2 className={ css.h2 }>Looker</h2>
-          <div className={ css.body }>{ term.looker }</div>
+          <Markdown className={ css.body }>{ term.looker }</Markdown>
         </div>
       </div>
     </div>
