@@ -54,7 +54,7 @@
   margin-top: 0;
 }
 
-.body {
+.body p {
   font-weight: var(--fontweight-regular);
   font-size: var(--fontsize-small-i);
 }
@@ -63,7 +63,7 @@
   margin-top: var(--size-regular);;
 }
 
-.definition {
+.definition p {
   margin-top: var(--size-regular);
   font-weight: var(--fontweight-demi);
   font-size: var(--fontsize-regular);
@@ -80,7 +80,7 @@
     font-size: var(--fontsize-large-v);
   }
 
-  .definition {
+  .definition p {
     font-size: var(--fontsize-large-i);
   }
 }
