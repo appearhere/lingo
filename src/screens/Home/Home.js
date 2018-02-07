@@ -33,7 +33,7 @@ const Home = ({ match, location }) => {
 
   return (
     <div className={ sharedCss.container }>
-      { currentDepartment
+      { currentDepartment && !query
         ? <TermList department={ currentDepartment } terms={ results[currentDepartment] } />
         : map(results, (groupedTerms, department) => (
           <TermList key={ department } department={ department } terms={ groupedTerms } />

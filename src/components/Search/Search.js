@@ -21,7 +21,7 @@ class Search extends Component {
   checkLocation = () => {
     const { match, history } = this.props;
 
-    if (match.params.department && match.params.term) history.push('/');
+    if (match.params.department) history.push('/');
   };
 
   updateURL = (query) => {
