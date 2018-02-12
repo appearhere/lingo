@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router';
 
 import IconInput from '@appearhere/bloom/components/Form/IconInput/IconInput';
 
@@ -21,7 +22,7 @@ class Search extends Component {
   checkLocation = () => {
     const { match, history } = this.props;
 
-    if (match.params.department && match.params.term) history.push('/');
+    if (match.params.department) history.push('/');
   };
 
   updateURL = (query) => {
@@ -43,8 +44,10 @@ class Search extends Component {
       <div className={ css.root } onClick={ this.checkLocation }>
         <IconInput
           iconName="search"
+          iconSide="right"
+          type="search"
           classNames={ { root: css.inputRoot, input: css.input } }
-          placeholder="Search for a term"
+          placeholder="Search..."
           onChange={ this.handleInputChange }
           value={ value }
         />
@@ -53,4 +56,4 @@ class Search extends Component {
   }
 }
 
-export default Search;
+export default withRouter(Search);

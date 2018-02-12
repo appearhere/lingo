@@ -1,59 +1,31 @@
 .root {
-  padding: var(--size-regular);
+  padding: calc(var(--size-lg-i) * 2);
   position: relative;
   background-color: var(--color-white);
-  border-radius: 4px;
-  z-index: 1;
-  transition: background-color 100ms ease-in-out;
-  border: 1px solid var(--color-greyLighter);
 }
 
-.root:after {
-  border-radius: 4px;
-  box-shadow: 0 2px 7px 0 rgba(0, 0, 0, 0.1);
-}
-
-.root:hover {
-  background-color: var(--color-greyLightest);
+.root:before {
+  content: "";
+  display: block;
+  padding-top: 100%;
+  float: left;
 }
 
 .root > a {
   text-decoration: none;
 }
 
-.header {
-  display: flex;
-}
-
 .name {
-  font-size: var(--fontsize-large-i);
+  font-size: var(--fontsize-large-ii);
   font-weight: var(--fontweight-demi);
-  color: var(--color-greyDarker);
-  white-space: nowrap;
-  overflow: hidden;
-  width: 98%;
-  text-overflow: ellipsis;
+  color: var(--color-black);
 }
 
 .department {
-  font-size: var(--fontsize-regular);
-  color: var(--color-grey);
-  margin-top: var(--size-sm-ii);
-}
-
-.definition {
-  margin-top: var(--size-sm-ii);
-  font-size: var(--fontsize-regular);
+  position: absolute;
+  bottom: calc(var(--size-lg-i) * 2);
+  font-size: var(--fontsize-small-i);
   font-weight: var(--fontweight-regular);
   color: var(--color-black);
-  white-space: nowrap;
-  overflow: hidden;
-  width: 98%;
-  text-overflow: ellipsis;
-}
-
-@media(min-width: 36.25rem) {
-  .badge {
-    display: none;
-  }
+  text-transform: uppercase;
 }

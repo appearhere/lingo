@@ -5,14 +5,14 @@ import TermCard from '../TermCard/TermCard';
 
 import css from './TermList.css';
 
-const TermList = ({ department, terms }) => (
+const TermList = ({ terms, highlight }) => (
   <section>
-    <h2 className={ css.h2 }>{ department }</h2>
     <div className={ css.container }>
       { terms.map(term => (
         <TermCard
           key={ term.name }
           term={ term }
+          highlight={ highlight }
           className={ css.item }
         />
       )) }
@@ -21,8 +21,8 @@ const TermList = ({ department, terms }) => (
 );
 
 TermList.propTypes = {
-  department: PropTypes.string.isRequired,
   terms: PropTypes.arrayOf(PropTypes.shape({})),
+  highlight: PropTypes.string,
 };
 
 TermList.defaultProps = {

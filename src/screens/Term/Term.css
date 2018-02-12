@@ -1,5 +1,18 @@
-.top {
-  max-width: 45rem;
+.root {
+  background-color: var(--color-white);
+}
+
+.top:after {
+  margin-top: calc(var(--size-lg-i) + var(--size-sm-ii));
+  margin-bottom: calc(var(--size-lg-i) + var(--size-sm-ii));
+  background-color: var(--color-greyLighter);
+  height: 1px;
+  bottom: 0;
+  content: "";
+  display: block;
+  left: 0;
+  vertical-align: middle;
+  width: 100%;
 }
 
 .bottom {
@@ -7,7 +20,6 @@
   grid-gap: calc(var(--size-lg-i) + var(--size-sm-ii));
   min-height: 0;
   min-width: 0;
-  margin-top: calc(var(--size-lg-i) + var(--size-sm-ii));
 }
 
 .section {
@@ -20,73 +32,60 @@
   margin-top: 0;
   margin-bottom: 0;
   font-weight: var(--fontweight-demi);
-  font-size: var(--fontsize-large-i);
+  font-size: var(--fontsize-large-iv);
 }
 
 .h2 {
+  text-transform: uppercase;
   margin-top: 0;
   margin-bottom: 0;
   font-weight: var(--fontweight-demi);
-  font-size: var(--fontsize-regular);
+  font-size: var(--fontsize-large-i);
   white-space: nowrap;
 }
 
-.h2:after {
-  margin-top: var(--size-regular);
-  margin-bottom: var(--size-regular);
-  background-color: var(--color-black);
-  height: 1px;
-  bottom: 0;
-  content: '';
-  display: block;
-  left: 0;
-  vertical-align: middle;
-  width: 100%;
-}
-
-.h3 {
-  margin-top: var(--size-regular);
-  margin-bottom: var(--size-regular);
-  font-size: var(--fontsize-small-i);
-}
-
-.h3:first-of-type {
-  margin-top: 0;
+.definition p {
+  font-size: var(--fontsize-large-i);
+  margin: 0;
+  margin-top: calc(var(--size-lg-i) + var(--size-sm-ii));
+  font-weight: var(--fontweight-demi);
+  max-width: 43.75rem;
 }
 
 .body p {
   font-weight: var(--fontweight-regular);
-  font-size: var(--fontsize-small-i);
-}
-
-.badge {
-  margin-top: var(--size-regular);;
-}
-
-.definition p {
-  margin-top: var(--size-regular);
-  font-weight: var(--fontweight-demi);
   font-size: var(--fontsize-regular);
 }
 
+.body a {
+  word-wrap: break-word;
+}
+
 @media(min-width: 36.25rem) {
+  .top:after {
+    margin-top: var(--size-lg-iii);
+    margin-bottom: var(--size-lg-iii);
+  }
+
   .bottom {
     grid-template-columns: repeat(2, 1fr);
     grid-gap: var(--size-lg-iii);
-    margin-top: var(--size-lg-iii)
-  }
-
-  .h1 {
-    font-size: var(--fontsize-large-v);
   }
 
   .definition p {
-    font-size: var(--fontsize-large-i);
+    margin-top: var(--size-lg-iii);
   }
 }
 
 @media(min-width: 48.75rem) {
   .bottom {
     grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media(min-width: 70rem) {
+  .root {
+    padding-left: 12rem;
+    padding-right: 12rem;
   }
 }
