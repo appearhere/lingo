@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 
-import Badge from '@appearhere/bloom/components/Badge/Badge';
 import Markdown from '@appearhere/bloom/components/Markdown/Markdown';
 
 import terms from '../../terms.json';
@@ -19,31 +18,30 @@ const Term = ({ match }) => {
     <div className={ cx(sharedCss.container, css.root) }>
       <div className={ css.top }>
         <h1 className={ css.h1 }>{ term.name }</h1>
-        <Badge className={ css.badge }>{ term.department }</Badge>
         <Markdown className={ css.definition }>{ term.definition }</Markdown>
       </div>
       <div className={ css.bottom }>
-        <div>
+        <div className={ css.section }>
           <h2 className={ css.h2 }>What</h2>
           <Markdown className={ css.body }>{ term.what }</Markdown>
         </div>
-        <div>
+        <div className={ css.section }>
           <h2 className={ css.h2 }>When</h2>
           <Markdown className={ css.body }>{ term.when }</Markdown>
         </div>
-        <div>
+        <div className={ css.section }>
           <h2 className={ css.h2 }>Where</h2>
           <Markdown className={ css.body }>{ term.where }</Markdown>
         </div>
-        <div>
+        <div className={ css.section }>
           <h2 className={ css.h2 }>Expected Boundary</h2>
           <Markdown className={ css.body }>{ term.expected_boundary }</Markdown>
         </div>
-        <div>
+        <div className={ css.section }>
           <h2 className={ css.h2 }>Hint</h2>
           <Markdown className={ css.body }>{ term.hint }</Markdown>
         </div>
-        <div>
+        <div className={ css.section }>
           <h2 className={ css.h2 }>Looker</h2>
           <Markdown className={ css.body }>{ term.looker }</Markdown>
         </div>
