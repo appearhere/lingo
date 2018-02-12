@@ -1,18 +1,24 @@
 .root {
-  display: flex;
-  flex-direction: column;
-  background-color: var(--color-black);
+  justify-self: end;
+  grid-area: search;
+  overflow: hidden;
+  min-width: 0;
+  min-height: 0;
+  width: 100%;
 }
 
 .inputRoot {
   width: 100%;
 }
 
-input[type="text"].input {
+input[type="search"].input {
   padding-top: var(--size-regular);
   padding-bottom: var(--size-regular);
+  background-color: var(--color-greyLightest);
 }
 
-.input:focus {
+input[type="search"].input:focus {
   outline: none;
+  background-color: var(--color-greyLightest);
+  border-color: var(--color-greyLighter);
 }
