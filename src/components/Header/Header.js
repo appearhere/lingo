@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import cx from 'classnames';
@@ -13,42 +13,47 @@ import css from './Header.css';
 
 const DEPARTMENTS = ['Supply', 'Commercial', 'Marketing', 'Service', 'Product'];
 
-const Header = ({ match, history }) => {
-  const handleItemClick = (e) => {
+export default class Header extends PureComponent {
+  static propTypes = {
+    match: PropTypes.shape({}).isRequired,
+    location: PropTypes.shape({}).isRequired,
+    history: PropTypes.shape({}).isRequired,
+  };
+
+  handleItemClick = (e) => {
+    const { history } = this.props;
     const { name } = e.target;
+
     history.push(`/${name}`);
   };
 
-  return (
-    <StickyNode>
-      <div className={ css.root }>
-        <Link to="/" className={ css.logoContainer }>
-          <Icon className={ css.logo } name="appearhere-brackets" />
-          <div className={ css.logoText }>Lingo</div>
-        </Link>
-        <div className={ css.navigation }>
-          { DEPARTMENTS.map(department => (
-            <BtnContainer
-              name={ department }
-              onClick={ handleItemClick }
-              className={
-                cx(css.navigationItem, match.params.department === department && css.active)
-              }
-            >
-              { department }
-            </BtnContainer>
-          )) }
+  render() {
+    const { match } = this.props;
+
+    return (
+      <StickyNode>
+        <div className={ css.root }>
+          <Link to="/" className={ css.logoContainer }>
+            <Icon className={ css.logo } name="appearhere-brackets" />
+            <div className={ css.logoText }>Lingo</div>
+          </Link>
+          <div className={ css.navigation }>
+            { DEPARTMENTS.map(department => (
+              <BtnContainer
+                key={ department }
+                name={ department }
+                onClick={ this.handleItemClick }
+                className={
+                  cx(css.navigationItem, match.params.department === department && css.active)
+                }
+              >
+                { department }
+              </BtnContainer>
+            )) }
+          </div>
+          <Search />
         </div>
-        <Search />
-      </div>
-    </StickyNode>
-  );
-};
-
-Header.propTypes = {
-  match: PropTypes.shape({}).isRequired,
-  location: PropTypes.shape({}).isRequired,
-  history: PropTypes.shape({}).isRequired,
-};
-
-export default Header;
+      </StickyNode>
+    );
+  }
+}

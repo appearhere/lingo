@@ -3,27 +3,26 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import cx from 'classnames';
 
-import Badge from '@appearhere/bloom/components/Badge/Badge';
-
 import cardCss from '@appearhere/bloom/components/Cards/Card/Card.css';
+
+import Highlight from '../Highlight/Highlight';
+
 import css from './TermCard.css';
 
-const TermCard = ({ term, className }) => (
+const TermCard = ({ term, highlight, className }) => (
   <Link
-    to={ `/${term.department}/${term.name}` }className={ cx(css.root, cardCss.link, className) }
+    to={ `/${term.department}/${term.name}` } className={ cx(css.root, cardCss.link, className) }
   >
-    <div className={ css.header }>
-      <div className={ css.name }>{ term.name }</div>
-      <Badge className={ css.badge }>{ term.department }</Badge>
-    </div>
-    <div className={ css.definition }>
-      { term.definition }
+    <Highlight className={ css.name } text={ term.name } highlight={ highlight } />
+    <div className={ css.department }>
+      { term.department }
     </div>
   </Link>
 );
 
 TermCard.propTypes = {
   term: PropTypes.shape({}).isRequired,
+  highlight: PropTypes.string,
   className: PropTypes.string,
 };
 
