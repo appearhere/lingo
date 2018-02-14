@@ -57,8 +57,14 @@
   font-size: var(--fontsize-regular);
 }
 
-.body a {
+.linkContainer {
+  margin-top: 1em;
+}
+
+.link {
   word-wrap: break-word;
+  color: var(--color-gold);
+  text-decoration: underline;
 }
 
 @media(min-width: 36.25rem) {

@@ -43,7 +43,11 @@ const Term = ({ match }) => {
         </div>
         <div className={ css.section }>
           <h2 className={ css.h2 }>Looker</h2>
-          <Markdown className={ css.body }>{ term.looker }</Markdown>
+          <div className={ css.linkContainer }>
+            <a className={ css.link } href={ term.looker } target="_blank" rel="noopener noreferrer">
+              { term.looker }
+            </a>
+          </div>
         </div>
       </div>
     </div>
