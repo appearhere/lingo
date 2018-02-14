@@ -5,6 +5,9 @@
   min-width: 0;
   margin-bottom: var(--size-regular);
   grid-template-columns: repeat(1, 1fr);
+  max-width: 90rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .h2 {
@@ -17,13 +20,13 @@
   min-height: 0;
 }
 
-@media(min-width: 30rem) {
+@media(min-width: 22rem) {
   .container {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media(min-width: 60rem) {
+@media(min-width: 61rem) {
   .container {
     grid-template-columns: repeat(4, 1fr);
   }
