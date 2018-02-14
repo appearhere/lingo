@@ -29,9 +29,9 @@ class Search extends Component {
     const { location, history } = this.props;
 
     if (query) {
-      history.push(`${location.pathname}?q=${query}`);
+      history.replace(`${location.pathname}?q=${query}`);
     } else {
-      history.push(`${location.pathname}`);
+      history.replace(`${location.pathname}`);
     }
   };
 
@@ -45,7 +45,7 @@ class Search extends Component {
         <IconInput
           iconName="search"
           iconSide="right"
-          type="search"
+          type="text"
           classNames={ { root: css.inputRoot, input: css.input } }
           placeholder="Search..."
           onChange={ this.handleInputChange }

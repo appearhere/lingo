@@ -11,13 +11,13 @@
   width: 100%;
 }
 
-input[type="search"].input {
+input[type="text"].input {
   padding-top: var(--size-regular);
   padding-bottom: var(--size-regular);
   background-color: var(--color-greyLightest);
 }
 
-input[type="search"].input:focus {
+input[type="text"].input:focus {
   outline: none;
   background-color: var(--color-greyLightest);
   border-color: var(--color-greyLighter);

@@ -1,9 +1,8 @@
 .root {
   display: grid;
-  grid-template-columns: 0.2fr 0.4fr 0.4fr;
+  grid-template-columns: 0.2fr 0.5fr 0.4fr;
   grid-template-areas:
-  "logo logo logo"
-  "search search search"
+  "logo search search"
   "navigation navigation navigation";
   align-items: center;
   position: relative;
@@ -31,16 +30,15 @@
   min-height: 0;
 }
 
-.logo {
+.logo,
+.logoBrackets {
+  display: flex;
   color: var(--color-black);
-  font-size: var(--fontsize-large-i);
-  margin-right: var(--size-sm-i);
+  font-size: 1.5rem;
 }
 
-.logoText {
-  color: var(--color-black);
-  font-weight: var(--fontweight-demi);
-  font-size: var(--fontsize-large-i);
+.logo {
+  display: none;
 }
 
 .navigation {
@@ -73,18 +71,33 @@
   color: var(--color-black);
 }
 
-@media(min-width: 36.25rem) {
+@media(min-width: 25rem) {
+  .logoBrackets {
+    font-size: 3rem;
+  }
+}
+
+@media(min-width: 37rem) {
   .root {
+    grid-template-columns: 0.4fr 0.2fr 0.4fr;
     padding-top: calc(var(--size-lg-i) + var(--size-sm-ii));
     padding-bottom: calc(var(--size-lg-i) + var(--size-sm-ii));
     padding-left: var(--size-lg-iii);
     padding-right: var(--size-lg-iii);
   }
+
+  .logo {
+    display: flex;
+  }
+
+  .logoBrackets {
+    display: none;
+  }
 }
 
 @media(min-width: 70rem) {
   .root {
-    grid-template-columns: 0.1fr 0.5fr 0.4fr;
+    grid-template-columns: 0.11fr 0.5fr 0.4fr;
     grid-template-areas:
     "logo navigation search";
   }

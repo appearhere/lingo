@@ -34,8 +34,8 @@ export default class Header extends PureComponent {
       <StickyNode>
         <div className={ css.root }>
           <Link to="/" className={ css.logoContainer }>
-            <Icon className={ css.logo } name="appearhere-brackets" />
-            <div className={ css.logoText }>Lingo</div>
+            <Icon className={ css.logo } name="appearhere" />
+            <Icon className={ css.logoBrackets } name="appearhere-brackets" />
           </Link>
           <div className={ css.navigation }>
             { DEPARTMENTS.map(department => (
