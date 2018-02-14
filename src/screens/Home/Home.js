@@ -36,6 +36,12 @@ const Home = ({ match, location }) => {
 
   return (
     <div className={ cx(sharedCss.container, css.root) }>
+      <h1 className={ css.welcome }> Here&#39;s the Lingo</h1>
+
+      <p className={ css.strapline }>
+        Lingo is here to help you understand the terms we all use.
+      </p>
+
       { currentDepartment
         ? <TermList
           terms={ results[currentDepartment] }
@@ -48,7 +54,7 @@ const Home = ({ match, location }) => {
       }
       { query && !results.length &&
         <div className={ css.iconContainer }>
-          No match.
+          We couldn&#39;t find what you were looking for.
           <ValueIconNoBull className={ css.icon } value="NoBull" />
         </div>
       }
