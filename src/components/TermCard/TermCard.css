@@ -1,5 +1,5 @@
 .root {
-  padding: calc(var(--size-lg-i) * 2);
+  padding: var(--size-lg-i);
   position: relative;
   background-color: var(--color-white);
 }
@@ -7,7 +7,7 @@
 .root:before {
   content: "";
   display: block;
-  padding-top: 100%;
+  padding-top: 50%;
   float: left;
 }
 
@@ -16,16 +16,40 @@
 }
 
 .name {
-  font-size: var(--fontsize-large-ii);
+  font-size: var(--fontsize-regular);
   font-weight: var(--fontweight-demi);
   color: var(--color-black);
 }
 
 .department {
   position: absolute;
-  bottom: calc(var(--size-lg-i) * 2);
-  font-size: var(--fontsize-small-i);
+  bottom: var(--size-lg-i);
+  font-size: var(--fontsize-small-ii);
   font-weight: var(--fontweight-regular);
   color: var(--color-black);
   text-transform: uppercase;
+}
+
+@media(min-width: 22rem) {
+  .root:before {
+    padding-top: 100%;
+  }
+}
+
+@media(min-width: 40rem) {
+  .name {
+    font-size: var(--fontsize-large-ii);
+  }
+
+  .department {
+    font-size: var(--fontsize-small-i);
+  }
+
+  .root {
+    padding: calc(var(--size-lg-i) * 2);
+  }
+
+  .root:before {
+    padding-top: 100%;
+  }
 }
