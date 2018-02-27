@@ -41,14 +41,16 @@ const Term = ({ match }) => {
           <h2 className={ css.h2 }>Hint</h2>
           <Markdown className={ css.body }>{ term.hint }</Markdown>
         </div>
-        <div className={ css.section }>
-          <h2 className={ css.h2 }>Looker</h2>
-          <div className={ css.linkContainer }>
-            <a className={ css.link } href={ term.looker } target="_blank" rel="noopener noreferrer">
-              { term.looker }
-            </a>
+        { term.looker && (
+          <div className={ css.section }>
+            <h2 className={ css.h2 }>Looker</h2>
+            <div className={ css.linkContainer }>
+              <a className={ css.link } href={ term.looker } target="_blank" rel="noopener noreferrer">
+                { term.looker }
+              </a>
+            </div>
           </div>
-        </div>
+        ) }
       </div>
     </div>
   );
