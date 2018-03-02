@@ -15,6 +15,7 @@ const customProperties = require('postcss-custom-properties');
 const webpackPostcssTools = require('webpack-postcss-tools');
 const paths = require('./paths');
 const getClientEnvironment = require('./env');
+const data = require('./data');
 
 // Webpack uses `publicPath` to determine where the app is being served from.
 // It requires a trailing slash, or the file assets will get an incorrect path.
@@ -95,7 +96,7 @@ module.exports = {
     // for React Native Web.
     extensions: ['.web.js', '.mjs', '.js', '.json', '.web.jsx', '.jsx'],
     alias: {
-      
+
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
       'react-native': 'react-native-web',
@@ -126,7 +127,7 @@ module.exports = {
             options: {
               formatter: eslintFormatter,
               eslintPath: require.resolve('eslint'),
-              
+
             },
             loader: require.resolve('eslint-loader'),
           },
@@ -313,7 +314,7 @@ module.exports = {
     // if (process.env.NODE_ENV === 'production') { ... }. See `./env.js`.
     // It is absolutely essential that NODE_ENV was set to production here.
     // Otherwise React will be compiled in the very slow development mode.
-    new webpack.DefinePlugin(env.stringified),
+    new webpack.DefinePlugin(Object.assign({}, env.stringified, { __TERMS__: data.terms })),
     // Minify the code.
     new webpack.optimize.UglifyJsPlugin({
       compress: {
@@ -326,7 +327,7 @@ module.exports = {
       },
       mangle: {
         safari10: true,
-      },        
+      },
       output: {
         comments: false,
         // Turned on because emoji and regex is not minified properly using default

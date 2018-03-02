@@ -4,7 +4,7 @@ import cx from 'classnames';
 
 import Markdown from '@appearhere/bloom/components/Markdown/Markdown';
 
-import terms from '../../terms.json';
+import terms from '../../utils/terms';
 
 import sharedCss from '../../shared.css';
 import css from './Term.css';
