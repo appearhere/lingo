@@ -1,5 +1,12 @@
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
+## Lingo
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/appearhere/lingo)
+
+The app will be deployed with [sample data](https://github.com/appearhere/lingo/blob/master/src/sampleTerms.json).
+To add you own data create a `terms.json` file in the `src` directory.
+
 ## Getting started
 
 In the project directory run:

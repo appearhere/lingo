@@ -8,10 +8,9 @@ import BtnContainer from '@appearhere/bloom/components/BtnContainer/BtnContainer
 import Icon from '@appearhere/bloom/components/Icon/Icon';
 
 import Search from '../Search/Search';
+import { departments } from '../../utils/terms';
 
 import css from './Header.css';
-
-const DEPARTMENTS = ['Supply', 'Commercial', 'Marketing', 'Service', 'Product'];
 
 export default class Header extends PureComponent {
   static propTypes = {
@@ -38,7 +37,7 @@ export default class Header extends PureComponent {
             <Icon className={ css.logoBrackets } name="appearhere-brackets" />
           </Link>
           <div className={ css.navigation }>
-            { DEPARTMENTS.map(department => (
+            { departments.map(department => (
               <BtnContainer
                 key={ department }
                 name={ department }
