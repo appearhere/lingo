@@ -1,13 +1,16 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import renderer from 'react-test-renderer';
+import { StaticRouter, Route } from 'react-router';
+
 import Home from './Home';
 
-jest.mock('react-router-dom', () => ({
-  // eslint-disable-next-line react/prop-types
-  Link: ({ children }) => <div>{ children }</div>,
-}));
+jest.mock('../../utils/terms', () => ([]));
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<Home match={ { params: { department: 'All' } } } />, div);
+describe('Home component', () => {
+  it('renders correctly', () => {
+    const tree = renderer
+      .create(<StaticRouter><Route component={ Home } /></StaticRouter>)
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });

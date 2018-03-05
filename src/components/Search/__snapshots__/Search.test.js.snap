@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search component renders correctly 1`] = `
+<div
+  className={undefined}
+  onClick={[Function]}
+>
+  <div
+    className=""
+  >
+    <span
+      className=""
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "icon-search.svg",
+        }
+      }
+      onClick={[Function]}
+    />
+    <div
+      className={undefined}
+    >
+      <input
+        className=""
+        id={undefined}
+        name={undefined}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        placeholder="Search..."
+        required={undefined}
+        type="text"
+        value=""
+      />
+      <span
+        className={undefined}
+      />
+    </div>
+  </div>
+</div>
+`;

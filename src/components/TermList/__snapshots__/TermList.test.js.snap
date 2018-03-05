@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TermList component renders correctly 1`] = `
+<section>
+  <div
+    className={undefined}
+  />
+</section>
+`;

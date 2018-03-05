@@ -88,7 +88,7 @@
       "^(?!.*\\.(js|jsx|mjs|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
     },
     "transformIgnorePatterns": [
-      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$"
+      "node_modules/(?!@appearhere/bloom)"
     ],
     "moduleNameMapper": {
       "^react-native$": "react-native-web"
@@ -110,5 +110,8 @@
   },
   "eslintConfig": {
     "extends": "./config/eslint.js"
+  },
+  "devDependencies": {
+    "react-test-renderer": "^16.2.0"
   }
 }

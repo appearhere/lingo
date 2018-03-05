@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Term component renders correctly 1`] = `
+<div
+  className=""
+>
+  <div
+    className={undefined}
+  >
+    <h1
+      className={undefined}
+    />
+  </div>
+  <div
+    className={undefined}
+  >
+    <div
+      className={undefined}
+    >
+      <h2
+        className={undefined}
+      >
+        What
+      </h2>
+    </div>
+    <div
+      className={undefined}
+    >
+      <h2
+        className={undefined}
+      >
+        When
+      </h2>
+    </div>
+    <div
+      className={undefined}
+    >
+      <h2
+        className={undefined}
+      >
+        Where
+      </h2>
+    </div>
+    <div
+      className={undefined}
+    >
+      <h2
+        className={undefined}
+      >
+        Expected Boundary
+      </h2>
+    </div>
+    <div
+      className={undefined}
+    >
+      <h2
+        className={undefined}
+      >
+        Hint
+      </h2>
+    </div>
+  </div>
+</div>
+`;

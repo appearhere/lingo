@@ -1,13 +1,12 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import renderer from 'react-test-renderer';
 import TermList from './TermList';
 
-jest.mock('react-router-dom', () => ({
-  // eslint-disable-next-line react/prop-types
-  Link: ({ children }) => <div>{ children }</div>,
-}));
-
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<TermList currentDepartment="All" />, div);
+describe('TermList component', () => {
+  it('renders correctly', () => {
+    const tree = renderer
+      .create(<TermList />)
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });

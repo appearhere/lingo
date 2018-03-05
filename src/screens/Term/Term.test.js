@@ -1,8 +1,16 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import renderer from 'react-test-renderer';
+import { StaticRouter, Route } from 'react-router';
+
 import Term from './Term';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<Term match={ { params: { } } } />, div);
+jest.mock('../../utils/terms');
+
+describe('Term component', () => {
+  it('renders correctly', () => {
+    const tree = renderer
+      .create(<StaticRouter><Route component={ Term } /></StaticRouter>)
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });

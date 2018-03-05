@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home component renders correctly 1`] = `
+<div
+  className=""
+>
+  <h1
+    className={undefined}
+  >
+     Here's the Lingo
+  </h1>
+  <p
+    className={undefined}
+  >
+    Lingo is here to help you understand the terms we all use.
+  </p>
+  <section>
+    <div
+      className={undefined}
+    />
+  </section>
+</div>
+`;

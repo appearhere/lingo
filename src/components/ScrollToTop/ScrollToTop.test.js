@@ -1,9 +1,20 @@
 import React from 'react';
-import { render } from 'react-dom';
+import renderer from 'react-test-renderer';
+import { StaticRouter } from 'react-router';
 
 import ScrollToTop from './ScrollToTop';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  render(<ScrollToTop />, div);
+describe('ScrollToTop component', () => {
+  it('renders correctly', () => {
+    const tree = renderer
+      .create(
+        <StaticRouter>
+          <ScrollToTop>
+            <div />
+          </ScrollToTop>
+        </StaticRouter>
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });

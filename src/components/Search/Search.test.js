@@ -1,8 +1,14 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import renderer from 'react-test-renderer';
+import { StaticRouter } from 'react-router';
+
 import Search from './Search';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<Search />, div);
+describe('Search component', () => {
+  it('renders correctly', () => {
+    const tree = renderer
+      .create(<StaticRouter><Search /></StaticRouter>)
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });

@@ -1,9 +1,13 @@
 import React from 'react';
-import { render } from 'react-dom';
+import renderer from 'react-test-renderer';
 
 import Highlight from './Highlight';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  render(<Highlight />, div);
+describe('Highlight component', () => {
+  it('renders correctly', () => {
+    const tree = renderer
+      .create(<Highlight />)
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });

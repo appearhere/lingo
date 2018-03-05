@@ -1,14 +1,14 @@
 import React from 'react';
-import { render } from 'react-dom';
+import renderer from 'react-test-renderer';
+import { StaticRouter } from 'react-router';
 
 import TermCard from './TermCard';
 
-jest.mock('react-router-dom', () => ({
-  // eslint-disable-next-line react/prop-types
-  Link: ({ children }) => <div>{ children }</div>,
-}));
-
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  render(<TermCard name="TTV" department="Concierge" linkTo="/TTV" />, div);
+describe('TermCard component', () => {
+  it('renders correctly', () => {
+    const tree = renderer
+      .create(<StaticRouter><TermCard term={ {} } /></StaticRouter>)
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });

@@ -12,34 +12,58 @@ import css from './Term.css';
 const Term = ({ match }) => {
   const term = terms.find(
     t => (t.name === match.params.term) && (t.department === match.params.department)
-  );
+  ) || {};
 
   return (
     <div className={ cx(sharedCss.container, css.root) }>
       <div className={ css.top }>
         <h1 className={ css.h1 }>{ term.name }</h1>
-        <Markdown className={ css.definition }>{ term.definition }</Markdown>
+        { term.definition && (
+          <Markdown className={ css.definition }>
+            { term.definition }
+          </Markdown>
+        ) }
       </div>
       <div className={ css.bottom }>
         <div className={ css.section }>
           <h2 className={ css.h2 }>What</h2>
-          <Markdown className={ css.body }>{ term.what }</Markdown>
+          { term.what && (
+            <Markdown className={ css.body }>
+              { term.what }
+            </Markdown>
+          ) }
         </div>
         <div className={ css.section }>
           <h2 className={ css.h2 }>When</h2>
-          <Markdown className={ css.body }>{ term.when }</Markdown>
+          { term.when && (
+            <Markdown className={ css.body }>
+              { term.when }
+            </Markdown>
+          ) }
         </div>
         <div className={ css.section }>
           <h2 className={ css.h2 }>Where</h2>
-          <Markdown className={ css.body }>{ term.where }</Markdown>
+          { term.where && (
+            <Markdown className={ css.body }>
+              { term.where }
+            </Markdown>
+          ) }
         </div>
         <div className={ css.section }>
           <h2 className={ css.h2 }>Expected Boundary</h2>
-          <Markdown className={ css.body }>{ term.expected_boundary }</Markdown>
+          { term.expected_boundary && (
+            <Markdown className={ css.body }>
+              { term.expected_boundary }
+            </Markdown>
+          ) }
         </div>
         <div className={ css.section }>
           <h2 className={ css.h2 }>Hint</h2>
-          <Markdown className={ css.body }>{ term.hint }</Markdown>
+          { term.hint && (
+            <Markdown className={ css.body }>
+              { term.hint }
+            </Markdown>
+          ) }
         </div>
         { term.looker && (
           <div className={ css.section }>
