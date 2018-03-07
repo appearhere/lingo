@@ -1,4 +1,4 @@
-/* global __TERMS__:true*/
+/* global __TERMS__:true */
 
 export const departments = __TERMS__
   .reduce((acc, { department }) => {

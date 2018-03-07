@@ -12,7 +12,7 @@ describe('ScrollToTop component', () => {
           <ScrollToTop>
             <div />
           </ScrollToTop>
-        </StaticRouter>
+        </StaticRouter>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();

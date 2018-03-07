@@ -5,15 +5,15 @@ import PropTypes from 'prop-types';
 import css from './Highlight.css';
 
 const Highlight = ({ highlight, caseSensitive, text, ...rest }) => (
-  <div { ...rest }>
+  <div {...rest}>
     { highlight
       ? replace(
         text,
         new RegExp(
           (highlight || '').replace(/[-\\^$*+?.()|[\]{}]/g, '\\$&'),
-          caseSensitive ? 'g' : 'gi'
+          caseSensitive ? 'g' : 'gi',
         ),
-        (tag, index) => <mark key={ index } className={ css.mark }>{ tag }</mark>
+        (tag, index) => <mark key={index} className={css.mark}>{ tag }</mark>,
       )
       : text }
   </div>

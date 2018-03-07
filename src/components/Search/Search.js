@@ -46,10 +46,10 @@ class Search extends Component {
           iconName="search"
           iconSide="right"
           type="text"
-          classNames={ { root: css.inputRoot, input: css.input } }
+          classNames={{ root: css.inputRoot, input: css.input }}
           placeholder="Search..."
-          onChange={ this.handleInputChange }
-          value={ value }
+          onChange={this.handleInputChange}
+          value={value}
         />
       </div>
     );

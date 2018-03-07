@@ -35,27 +35,27 @@ const Home = ({ match, location }) => {
   const results = currentDepartment ? formatResults(searchResults) : searchResults;
 
   return (
-    <div className={ cx(sharedCss.container, css.root) }>
-      <h1 className={ css.welcome }> Here&#39;s the Lingo</h1>
+    <div className={cx(sharedCss.container, css.root)}>
+      <h1 className={css.welcome}> Here&#39;s the Lingo</h1>
 
-      <p className={ css.strapline }>
+      <p className={css.strapline}>
         Lingo is here to help you understand the terms we all use.
       </p>
 
       { currentDepartment
         ? <TermList
-          terms={ results[currentDepartment] }
-          highlight={ query }
+          terms={results[currentDepartment]}
+          highlight={query}
         />
         : <TermList
-          terms={ results }
-          highlight={ query }
+          terms={results}
+          highlight={query}
         />
       }
       { query && !results.length &&
-        <div className={ css.iconContainer }>
+        <div className={css.iconContainer}>
           We couldn&#39;t find what you were looking for.
-          <ValueIconNoBull className={ css.icon } value="NoBull" />
+          <ValueIconNoBull className={css.icon} value="NoBull" />
         </div>
       }
     </div>

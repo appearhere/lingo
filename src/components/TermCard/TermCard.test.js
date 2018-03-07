@@ -7,7 +7,7 @@ import TermCard from './TermCard';
 describe('TermCard component', () => {
   it('renders correctly', () => {
     const tree = renderer
-      .create(<StaticRouter><TermCard term={ {} } /></StaticRouter>)
+      .create(<StaticRouter><TermCard term={{}} /></StaticRouter>)
       .toJSON();
     expect(tree).toMatchSnapshot();
   });

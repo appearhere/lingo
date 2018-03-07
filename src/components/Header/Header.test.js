@@ -10,7 +10,7 @@ jest.mock('../../utils/terms');
 describe('Header component', () => {
   it('renders correctly', () => {
     const tree = renderer
-      .create(<StaticRouter><Route component={ Header } /></StaticRouter>)
+      .create(<StaticRouter><Route component={Header} /></StaticRouter>)
       .toJSON();
     expect(tree).toMatchSnapshot();
   });

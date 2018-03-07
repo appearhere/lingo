@@ -7,13 +7,13 @@ import css from './TermList.css';
 
 const TermList = ({ terms, highlight }) => (
   <section>
-    <div className={ css.container }>
+    <div className={css.container}>
       { terms.map(term => (
         <TermCard
-          key={ term.name }
-          term={ term }
-          highlight={ highlight }
-          className={ css.item }
+          key={term.name}
+          term={term}
+          highlight={highlight}
+          className={css.item}
         />
       )) }
     </div>

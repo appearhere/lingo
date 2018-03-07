@@ -15,7 +15,6 @@ import css from './Header.css';
 export default class Header extends PureComponent {
   static propTypes = {
     match: PropTypes.shape({}).isRequired,
-    location: PropTypes.shape({}).isRequired,
     history: PropTypes.shape({}).isRequired,
   };
 
@@ -31,17 +30,17 @@ export default class Header extends PureComponent {
 
     return (
       <StickyNode>
-        <div className={ css.root }>
-          <Link to="/" className={ css.logoContainer }>
-            <Icon className={ css.logo } name="appearhere" />
-            <Icon className={ css.logoBrackets } name="appearhere-brackets" />
+        <div className={css.root}>
+          <Link to="/" className={css.logoContainer}>
+            <Icon className={css.logo} name="appearhere" />
+            <Icon className={css.logoBrackets} name="appearhere-brackets" />
           </Link>
-          <div className={ css.navigation }>
+          <div className={css.navigation}>
             { departments.map(department => (
               <BtnContainer
-                key={ department }
-                name={ department }
-                onClick={ this.handleItemClick }
+                key={department}
+                name={department}
+                onClick={this.handleItemClick}
                 className={
                   cx(css.navigationItem, match.params.department === department && css.active)
                 }

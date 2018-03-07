@@ -19,11 +19,11 @@ GA.initialize(process.env.REACT_APP_GA_TRACKING_ID, {
 const App = () => (
   <Router>
     <ScrollToTop>
-      <Route path="/" component={ GoogleAnalytics } />
-      <div className={ css.app }>
-        <Route exact path="/:department?/:term?" component={ Header } />
-        <Route exact path="/:department?" component={ Home } />
-        <Route exact path="/:department/:term" component={ Term } />
+      <Route path="/" component={GoogleAnalytics} />
+      <div className={css.app}>
+        <Route exact path="/:department?/:term?" component={Header} />
+        <Route exact path="/:department?" component={Home} />
+        <Route exact path="/:department/:term" component={Term} />
       </div>
     </ScrollToTop>
   </Router>

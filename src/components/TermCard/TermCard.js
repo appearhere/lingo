@@ -11,10 +11,11 @@ import css from './TermCard.css';
 
 const TermCard = ({ term, highlight, className }) => (
   <Link
-    to={ `/${term.department}/${term.name}` } className={ cx(css.root, cardCss.link, className) }
+    to={`/${term.department}/${term.name}`}
+    className={cx(css.root, cardCss.link, className)}
   >
-    <Highlight className={ css.name } text={ term.name } highlight={ highlight } />
-    <div className={ css.department }>
+    <Highlight className={css.name} text={term.name} highlight={highlight} />
+    <div className={css.department}>
       { term.department }
     </div>
   </Link>
