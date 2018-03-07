@@ -36,7 +36,7 @@ const Home = ({ match, location }) => {
 
   return (
     <div className={cx(sharedCss.container, css.root)}>
-      <h1 className={css.welcome}> Here&#39;s the Lingo</h1>
+      <h1 className={css.welcome}>Here&#39;s the Lingo</h1>
 
       <p className={css.strapline}>
         Lingo is here to help you understand the terms we all use.

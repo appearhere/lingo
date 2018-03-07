@@ -11,7 +11,6 @@ class ScrollToTop extends Component {
 
   componentDidUpdate(prevProps) {
     if (this.props.location !== prevProps.location) {
-      // eslint-disable-next-line
       window.scrollTo(0, 0);
     }
   }
