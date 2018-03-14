@@ -2,18 +2,7 @@ language: node_js
 node_js:
 - node
 cache: yarn
-sudo: required
-services:
-- docker
 jobs:
   include:
   - stage: test
-    script: echo eslint
-  - stage: build and deploy
-    script: "./scripts/refresh_terms && ./scripts/deploy"
-env:
-  global:
-    secure: ***REMOVED***
-before_install:
-- ***REMOVED***
-  ***REMOVED***
+    script: eslint
