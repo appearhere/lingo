@@ -1,4 +1,5 @@
 # Lingo
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/appearhere/lingo/blob/master/LICENSE)
 
 Lingo is a single page [React](https://github.com/facebook/react/) application built by [Appear Here](https://github.com/appearhere) using our open-source pattern library, [Bloom 🐙](https://github.com/appearhere/bloom).
 
@@ -59,3 +60,7 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 The build is minified and the filenames include the hashes.<br>
 Your app is ready to be deployed!
+
+## License
+
+Lingo is [MIT licensed](./LICENSE).
